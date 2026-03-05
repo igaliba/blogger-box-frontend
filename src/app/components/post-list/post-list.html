@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="row justify-content-center mb-5">
+    <div class="col-md-8">
+      <div class="card shadow border-0">
+        <div class="card-header bg-primary text-white py-3">
+          <h4 class="mb-0 text-center font-weight-bold">✨ Créer un nouvel article</h4>
+        </div>
+        <div class="card-body p-4">
+          <div class="mb-3">
+            <label class="form-label font-weight-bold">Titre</label>
+            <input type="text" class="form-control" [(ngModel)]="newTitle" placeholder="Donnez un titre percutant...">
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold">Contenu</label>
+            <textarea class="form-control" rows="4" [(ngModel)]="newContent" placeholder="Qu'avez-vous en tête ?"></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="form-label font-weight-bold">ID de la Catégorie (UUID)</label>
+            <input type="text" class="form-control" [(ngModel)]="newCategoryId" placeholder="Collez l'ID récupéré sur Swagger">
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-primary btn-lg" (click)="onSubmit()">🚀 Publier l'article</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <h2 class="text-center mb-4">Derniers Articles</h2>
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let post of posts">
+      <div class="card h-100 shadow-sm border-light">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-dark font-weight-bold">{{ post.title }}</h5>
+          <p class="card-text text-secondary flex-grow-1">{{ post.content }}</p>
+          
+          <div class="mt-3 pt-3 border-top">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge rounded-pill bg-info text-dark">
+                📁 {{ post.category.name }}
+              </span>
+              <small class="text-muted">
+                📅 {{ post.createdDate | date:'mediumDate' }}
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
