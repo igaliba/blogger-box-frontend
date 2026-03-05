@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../data/post'; 
 import { PostService } from '../../services/post.service'; 
-import { Category, CATEGORIES } from '../../data/category'; // Importe CATEGORIES aussi
+import { Category, CATEGORIES } from '../../data/category'; 
 
 @Component({
   selector: 'app-post-list',
@@ -11,7 +11,6 @@ import { Category, CATEGORIES } from '../../data/category'; // Importe CATEGORIE
 })
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
-  // On met les catégories par défaut ici au cas où l'API est vide
   categories: Category[] = CATEGORIES; 
 
   newTitle: string = '';
@@ -37,12 +36,11 @@ export class PostListComponent implements OnInit {
       next: (data) => {
         console.log("Catégories reçues du backend :", data);
         if (data && data.length > 0) {
-          this.categories = data; // Si le backend en a, on les utilise
+          this.categories = data; 
         }
       },
       error: (err) => {
         console.error("Erreur lors du chargement des catégories :", err);
-        // Si ça échoue, on garde la liste par défaut (CATEGORIES)
       }
     });
   }

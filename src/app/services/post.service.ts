@@ -17,7 +17,6 @@ export class PostService {
     return this.http.get<Post[]>(this.postsUrl);
   }
 
-  // On récupère les catégories depuis le backend pour avoir les vrais IDs de la BD
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.categoriesUrl);
   }
@@ -26,7 +25,7 @@ export class PostService {
     const body = { 
       title: title, 
       content: content, 
-      categoryId: categoryId, // Match exact avec CreationPostRequest.java
+      categoryId: categoryId, 
       author: author 
     };
     return this.http.post<Post>(this.postsUrl, body);

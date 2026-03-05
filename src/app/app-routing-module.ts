@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostListComponent } from './components/post-list/post-list'; // Correction ici
+import { PostListComponent } from './components/post-list/post-list'; 
 
 const routes: Routes = [
-  { path: '', component: PostListComponent }, // Utilise le nom complet
+  { path: '', component: PostListComponent }, 
 ];
 
 @NgModule({
