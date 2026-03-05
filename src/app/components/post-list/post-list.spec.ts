@@ -1,20 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
+import { PostListComponent } from './post-list';
+import { PostService } from '../../services/post.service';
 
-import { PostList } from './post-list';
-
-describe('PostList', () => {
-  let component: PostList;
-  let fixture: ComponentFixture<PostList>;
+describe('PostListComponent', () => {
+  let component: PostListComponent;
+  let fixture: ComponentFixture<PostListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PostList]
-    })
-    .compileComponents();
+      declarations: [PostListComponent],
+      imports: [HttpClientTestingModule, FormsModule],
+      providers: [PostService]
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(PostList);
+    fixture = TestBed.createComponent(PostListComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

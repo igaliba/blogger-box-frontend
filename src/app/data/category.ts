@@ -97,7 +97,7 @@ export const CATEGORIES = [
     name: 'Devops',
   },
   {
-    id: '3d12ea72-cfd2-40c4-9f53-486560c40941',
+    id: '1088422d-92a6-4217-8b50-99a79cc8c142',
     name: 'Education',
   },
   {
